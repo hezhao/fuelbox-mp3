@@ -4,5 +4,6 @@ A mp3 player controller board with LM386 op-amp, using touch sensor, push button
 
 TODO
 ====
+* 2032 Battery max discharge current is only 10mA
 * TOUCH sensor is not supposed to be grounded (GND plane may cause problem)
 * Remove vias that connect to TOUCH sensor
