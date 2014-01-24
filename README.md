@@ -5,7 +5,7 @@ fuelbox-mp3
 
 Power Consumption
 =================
-* Arduino Pro Mini 5V + MP3 module + PAM8403 amp = 45mA @ 9v
+* Arduino Pro Mini 5V + MP3 module + PAM8403 amp = 45mA @ 7.4v
 * Arduino Pro Mini 5V = 15mA @ 5V
 * MP3 module = 85mA @ 3.7v
 * Sleep Mode: Arduino Pro Mini 5V = 0.58mA @ 9V
