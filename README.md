@@ -13,7 +13,8 @@ Power Consumption
 
 Notes
 =====
-* When using LiPo battery, there is a large inrust current. A 30Ω current limiting resistor is placed in serial with reed switch. R = U / Switching Current = 7.4v / 0.25A = 29.6Ω
+* When using LiPo battery, there is a large inrust current. A 30Ω current limiting resistor is placed in serial with reed switch. 
+* R = U / Switching Current = 7.4v / 0.25A = 29.6Ω
 
 TODO
 ====
