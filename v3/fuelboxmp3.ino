@@ -1,8 +1,13 @@
 /*
+ * TODO
+ * - Perf board (dipmicro.com & radioshack)
+ * - Digikey reed switch (WebID 50506821, Access ID 14620)
+ *
  * See http://playground.arduino.cc/Learning/arduinoSleepCode
  *
- * Wakes up for 10 seconds and then sleeps forever, in sleep mode,
- * arduino Pro Mini 5V consumes 0.58mA on a 9V battery.
+ * Wakes up for 10 seconds, sends HIGH to audioPin, and then sleeps 
+ * forever, in sleep mode, arduino Pro Mini 5V consumes 0.58mA on a 
+ * 9V battery.
  *
  * Uncomment code for interrupt wake up upon pin2 going LOW. Use a
  * pull-up 10K resistor between VCC and pin2. When pin2 goes LOW
@@ -16,7 +21,7 @@ const int addr = 209;              // EEPROM address to store flag
 const int audioDuration = 10;      // audio duration in seconds
 
 //const int wakePin = 2;           // pin used for waking up
-const int audioPin = 8;            // pin that provides power for mp3 player
+const int audioPin = 4;            // pin that provides power for mp3 player
 const int ledPin = 13;
 
 void setup()
