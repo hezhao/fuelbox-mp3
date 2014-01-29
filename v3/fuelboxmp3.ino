@@ -5,7 +5,7 @@
  *
  * See http://playground.arduino.cc/Learning/arduinoSleepCode
  *
- * Wakes up for 10 seconds, sends HIGH to audioPin, and then sleeps 
+ * Wakes up for 10 seconds, sends HIGH to mp3Pin, and then sleeps 
  * forever, in sleep mode, arduino Pro Mini 5V consumes 0.58mA on a 
  * 9V battery.
  *
@@ -17,18 +17,20 @@
 #include <EEPROM.h>
 #include <avr/sleep.h>
 
-const int addr = 209;              // EEPROM address to store flag
-const int audioDuration = 10;      // audio duration in seconds
+const int addr           = 209;    // EEPROM address to store flag
+const int audioDuration  = 10;     // audio duration in seconds
 
-//const int wakePin = 2;           // pin used for waking up
-const int audioPin = 4;            // pin that provides power for mp3 player
-const int ledPin = 13;
+//const int wakePin = 2;           // interrupt pin to wake up arduino
+const int mp3Pin         = 4;      // pin that sources power to mp3 player
+const int ampShutdownPin = 9;      // TPA2005D1 audio amplifier SDN pin (<0.8V off, >2V on)
+const int ledPin         = 13;     // led indicator
 
 void setup()
 {
-    Serial.begin(9600);
+//    Serial.begin(9600);
     //  pinMode(wakePin, INPUT);
-    pinMode(audioPin, OUTPUT);
+    pinMode(mp3Pin, OUTPUT);
+    pinMode(ampShutdownPin, OUTPUT);
     pinMode(ledPin, OUTPUT);
     //  attachInterrupt(0, wakeUpNow, LOW);
     play();
@@ -53,8 +55,8 @@ int EEPROMCheck()
     bool shouldPlay = false;
     
     int val = EEPROM.read(addr);
-    Serial.print("val: ");
-    Serial.println(val);
+//    Serial.print("val: ");
+//    Serial.println(val);
     
     // start counter if addr has never been written
     if (val >= 255) {
@@ -88,21 +90,23 @@ void play()
     int count = 0;
     while (count < audioDuration)
     {
-        digitalWrite(audioPin, HIGH);
+        digitalWrite(mp3Pin, HIGH);
+        digitalWrite(ampShutdownPin, HIGH);
         digitalWrite(ledPin, HIGH);
         delay(500);
         digitalWrite(ledPin, LOW);
         delay(500);
         count++;
-        Serial.print("playing: ");
-        Serial.println(count);
+//        Serial.print("playing: ");
+//        Serial.println(count);
     }
     
     // Entering Sleep mode after 10 seconds
     if (count >= audioDuration)
     {
+        digitalWrite(mp3Pin, LOW);
+        digitalWrite(ampShutdownPin, LOW);
         digitalWrite(ledPin, LOW);
-        digitalWrite(audioPin, LOW);
         // this delay is needed, the sleep function will provoke a Serial error otherwise!!
         delay(100);
     }
