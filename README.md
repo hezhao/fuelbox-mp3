@@ -7,9 +7,8 @@ Fuelbox MP3
 
 Power Consumption
 =================
-* Arduino Pro Mini 5V + MP3 module + TPA2005D1 amp = 90mA @ 7.4V
+* Arduino Pro Mini 5V + MP3 module + TPA2005D1 amp = 50mA @ 7.4V
 * Arduino Pro Mini 5V = 15mA @ 5V
-* MP3 module = 85mA @ 3.7V
 * TPA2005D1 = 15mA @ 5V
 * Sleep Mode: Arduino Pro Mini 5V = 0.58mA @ 9V
 * Sleep Mode: TPA2005D1 = 0.5µA @ 5V (datasheet)
@@ -21,6 +20,7 @@ Notes
 =====
 * When using LiPo battery, there is a large inrust current. A 30Ω current limiting resistor is placed in serial with reed switch
 * R = U / Switching Current = 7.4V / 0.25A = 29.6Ω; For absolute safety, use R = 8.2V / 0.25A = 32.8Ω since fully charged LiPo battery can reach 4.2V
+* TPA2005D1 amp produces a short bust sound if triggered by the arduino digital pin, so instead it is directly powered by VCC and digital pin 9 shutsdown amp after audio finishes
 
 TODO
 ====
