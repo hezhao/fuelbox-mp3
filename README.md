@@ -3,7 +3,8 @@ Fuelbox MP3
 * v1v2: An mp3 player controller board with LM386 op-amp, using touch sensor, push button and light sensor as trigger.
 * v3: An mp3 player + Arduino + TPA2005D1 amp all-in-one triggered only by SPST-NC reed switch (SPDT will do too, just choose NC pair). Once triggered, Arduino checks the EEPROM flag, plays the audio once, and sleeps forever.
 
-![circuit](https://github.com/hezhao/fuelbox-mp3/raw/master/v3/fuelboxmp3-circuit.png "Circuit")
+![circuit](https://github.com/hezhao/fuelbox-mp3/raw/master/v3/circuit.png =600x)
+![prototype](https://github.com/hezhao/fuelbox-mp3/raw/master/v3/prototype.png =600x)
 
 Power Consumption
 =================
